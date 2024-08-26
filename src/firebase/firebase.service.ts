@@ -10,8 +10,7 @@ export class FirebaseService {
 
   constructor() {
     const privateKey = process.env.FIREBASE_PRIVATE_KEY;
-    console.log(process.env.FIREBASE_PROJECT_ID);
-    console.log(privateKey);
+    
     if (!privateKey) {
       throw new Error('FIREBASE_PRIVATE_KEY is not defined in the environment variables');
     }

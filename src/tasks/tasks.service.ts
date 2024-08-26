@@ -10,8 +10,9 @@ export class TasksService {
     async createTask(taskDto: any) {
         const db = this.firebaseService.getDatabase();
         const taskRef = db.collection('tasks').doc();
-        await taskRef.set({ ...taskDto, id: taskRef.id });
-        return taskRef.id;
+        const newTask = { ...taskDto, id: taskRef.id };
+        await taskRef.set(newTask);
+        return newTask; 
     }
 
     async getTasks() {
